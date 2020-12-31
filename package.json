@@ -28,7 +28,7 @@
     "pngparse": "^2.0.1"
   },
   "devDependencies": {
-    "tape": "^2.14.0"
+    "tape": "^5.1.0"
   },
   "repository": {
     "type": "git",

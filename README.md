@@ -27,6 +27,14 @@ readimage(filedata, function (err, image) {
   console.log(image)
 })
 
+// Or use promises
+readimage.readPromise(filedata).then(function(image) {
+  console.log(image)
+}).catch(function(err) {
+  console.log("failed to parse the image")
+  console.log(err)
+})
+
 ```
 
 API

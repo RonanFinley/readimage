@@ -7,6 +7,7 @@ var bufferEqual = require("buffer-equal")
 var isnumber = require("isnumber")
 
 module.exports = read
+module.exports.readPromise = readPromise
 module.exports.Image = Image
 module.exports.Frame = Frame
 
@@ -24,6 +25,19 @@ function read(buffer, callback) {
     return parsePng(buffer, callback)
   }
   return parseJpg(buffer, callback)
+}
+
+/**
+ * A Promise wrapper for the read() function.
+ * Returns image object, rejects with error
+ */
+function readPromise(buffer) {
+  return new Promise(function (res,rej) {
+    read(buffer, function (err,image) {
+      if(err) rej(err)
+      res(image)
+    })
+  })
 }
 
 function parseGif(buffer, callback) {

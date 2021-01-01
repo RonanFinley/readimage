@@ -103,3 +103,16 @@ test("gif", function (t) {
     t.end()
   })
 })
+
+test("png", function (t) {
+  var buf = readfile("../examples/ravenwall.png")
+  readimage.readPromise(buf).then(function(image) {
+    t.equals(image.height, 458, "(Promise) yep, height")
+    t.equals(image.width, 270, "(Promise) yep, width")
+    t.equals(image.frames.length, 1)
+    t.equals(image.frames[0].data.length, image.height * image.width * 4, "(Promise) right data length")
+    t.end()
+  }).catch(function(err) {
+    t.fail(err)
+  })
+})

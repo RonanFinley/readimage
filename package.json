@@ -37,5 +37,6 @@
   "bugs": {
     "url": "https://github.com/revisitors/readimage/issues"
   },
-  "homepage": "https://github.com/revisitors/readimage"
+  "homepage": "https://github.com/revisitors/readimage",
+  "types": "readimage.d.ts"
 }

@@ -28,7 +28,8 @@ readimage(filedata, function (err, image) {
 })
 
 // Or use promises
-readimage.readPromise(filedata).then(function(image) {
+var {readPromise} = require("readimage")
+readPromise(filedata).then(function(image) {
   console.log(image)
 }).catch(function(err) {
   console.log("failed to parse the image")

@@ -3,6 +3,7 @@
 var test = require("tape")
 var fs = require("fs")
 var readimage = require("../readimage")
+var { readPromise } = require("../readimage")
 var readfile = function (filename) {
   return fs.readFileSync(__dirname + "/" + filename)
 }
@@ -106,7 +107,7 @@ test("gif", function (t) {
 
 test("png", function (t) {
   var buf = readfile("../examples/ravenwall.png")
-  readimage.readPromise(buf).then(function(image) {
+  readPromise(buf).then(function(image) {
     t.equals(image.height, 458, "(Promise) yep, height")
     t.equals(image.width, 270, "(Promise) yep, width")
     t.equals(image.frames.length, 1)
